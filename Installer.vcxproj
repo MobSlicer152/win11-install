@@ -17,7 +17,10 @@
     <ItemDefinitionGroup>
         <ClCompile>
             <LanguageStandard>stdcpp17</LanguageStandard>
-            <AdditionalIncludeDirectories>$(SolutionDir)include</AdditionalIncludeDirectories>
+            <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)include</AdditionalIncludeDirectories>
+            <PrecompiledHeader>Use</PrecompiledHeader>
+            <PrecompiledHeaderOutputFile>$(OutDir)pch.pch</PrecompiledHeaderOutputFile>
+            <PreprocessorDefinitions>$(Configuration);$(Platform)</PreprocessorDefinitions>
         </ClCompile>
     </ItemDefinitionGroup>
 
@@ -25,6 +28,9 @@
 
     <ItemGroup>
         <ClCompile Include="$(SolutionDir)main.cpp" />
+        <ClCompile Include="$(SolutionDir)stdafx.cpp">
+            <PrecompiledHeader>Create</PrecompiledHeader>
+        </ClCompile>
     </ItemGroup>
 
     <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Targets" />
